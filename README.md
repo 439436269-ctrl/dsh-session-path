@@ -13,6 +13,16 @@
 另一个会话  ──►  session_handoff({ sessionId })  ──►  解压后的可读文件  ──►  read 它，继续
 ```
 
+## 长什么样
+
+**当前会话**：会话标题栏右侧多一个 ⧉ 按钮。
+
+![会话标题栏上的复制按钮](https://raw.githubusercontent.com/439436269-ctrl/dsh-session-path/main/docs/header-button.png)
+
+**任意会话**：侧栏会话行的 `⋯` / 右键菜单最后一项（不用先打开那个会话）。
+
+![侧栏会话行菜单里的「复制会话路径」](https://raw.githubusercontent.com/439436269-ctrl/dsh-session-path/main/docs/sidebar-menu.png)
+
 ## 它解决什么问题
 
 DSH 每个会话的原始记录在 `$DSH_HOME/sessions/<工作区>/<会话目录>/session[.vN].jsonl[.zstd]`。

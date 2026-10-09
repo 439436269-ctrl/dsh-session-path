@@ -1,6 +1,6 @@
 {
   "name": "dsh-session-path",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DeepSeek Harness plugin: copy a session's log path (and an agent-readable handoff) so another session can read it and continue the work.",
   "type": "module",
   "license": "MIT",

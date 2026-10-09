@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- README 加了界面截图：会话标题栏的 ⧉ 按钮，以及侧栏会话行菜单里的
+  「复制会话路径」（图片在 `docs/`，README 用绝对 raw 地址引用，npm 页面上也能显示）。
+- 仅文档变更，代码与 0.1.1 一致。
+
 ## 0.1.1
 
 - Sidebar session rows: 「复制会话路径」 in the row's `⋯` / right-click menu
