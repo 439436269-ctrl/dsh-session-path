@@ -244,9 +244,14 @@ await check("cross-site and mismatched origins are rejected", () => {
 console.log("real session log (when one exists on this machine)");
 await check("the largest real log scans, walks and renders", async () => {
 	const { homedir } = await import("node:os");
-	const { readdirSync, statSync } = await import("node:fs");
+	const { existsSync, readdirSync, statSync } = await import("node:fs");
 	const root = join(homedir(), ".dsh", "sessions");
 	const sizes = [];
+	// A CI runner has no DSH home at all: that is a skip, not a failure.
+	if (!existsSync(root)) {
+		console.log("      (no $DSH_HOME/sessions on this machine — skipped; run this locally for the real-log pass)");
+		return;
+	}
 	for (const dir of readdirSync(root)) {
 		const projectPath = join(root, dir);
 		if (!statSync(projectPath).isDirectory()) continue;
