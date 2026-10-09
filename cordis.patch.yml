@@ -1,0 +1,15 @@
+# dsh-session-path bundle patch: one host row. `name` MUST equal the package name
+# (the client half resolves `require.resolve('<row-name>/package.json')` to find
+# this package and then its `exports["./client"]` bundle). The row `id` is a
+# purely local identifier and is also the settings-page namespace.
+- insert:
+    - id: dsh-session-path
+      name: dsh-session-path
+      config:
+        enabled: true
+        # "block" copies a paste-ready handoff block (title / id / cwd / log
+        # path); "path" copies the bare log-file path only.
+        copyFormat: block
+        # Format of the file `session_handoff` writes: "md" (readable
+        # transcript) or "jsonl" (plain, decompressed event log).
+        handoffFormat: md

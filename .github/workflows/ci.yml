@@ -1,0 +1,22 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      # The self-test is dependency-free: it exercises the Zstandard frame walker,
+      # path discovery, handoff rendering and the trust fence without the harness.
+      # Checks that need a real session log skip themselves on a bare runner.
+      - run: node test/selftest.mjs

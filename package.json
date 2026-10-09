@@ -1,0 +1,75 @@
+{
+  "name": "dsh-session-path",
+  "version": "0.1.1",
+  "description": "DeepSeek Harness plugin: copy a session's log path (and an agent-readable handoff) so another session can read it and continue the work.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "session",
+    "session-log",
+    "handoff",
+    "path",
+    "会话",
+    "接续"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/439436269-ctrl/dsh-session-path.git"
+  },
+  "homepage": "https://github.com/439436269-ctrl/dsh-session-path#readme",
+  "bugs": {
+    "url": "https://github.com/439436269-ctrl/dsh-session-path/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node test/selftest.mjs"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-system-prompt": "^0.2.0-rc.2",
+    "@deepseek-ai/dsh-tools": "^0.2.0-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ],
+      "platform": "web"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.2": "compatible"
+      }
+    }
+  }
+}
